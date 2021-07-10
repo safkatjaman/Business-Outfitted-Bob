@@ -44,7 +44,9 @@ const gameState = {
     
         // Collision detection between Bob and money sprite
         this.physics.add.overlap(gameState.player, gameState.money, () => {
-            if (score >= 3000) {
+            if (score === 0){
+                  speed = 1;
+            }else if (score >= 3000) {
                   speed += .2;
             } else if (score >= 6000) {
                   speed += .2;
@@ -78,6 +80,7 @@ const gameState = {
         function generateRandomCoords() {
           const randomX = Math.floor(Math.random() * 5) * 75 + 25
           const randomY = Math.floor(Math.random() * 5) * 75 + 25
+          
           return { x: randomX, y: randomY }
         }
     
